@@ -31,9 +31,17 @@ const handleClick = (term: OrderTerm) => {
 </script>
 
 <template>
-  <button @click="handleClick('title')">Sort by Title</button>
-  <button @click="handleClick('salary')">Sort by Salary</button>
-  <button @click="handleClick('location')">Sort by Location</button>
+  <header>
+    <div class="title">
+      <img src="./assets/heart.svg" alt="logo">
+      <h1>Hyrule Jobs</h1>
+    </div>
+    <div class="order">
+      <button @click="handleClick('title')">Sort by Title</button>
+      <button @click="handleClick('salary')">Sort by Salary</button>
+      <button @click="handleClick('location')">Sort by Location</button>
+    </div>
+  </header>
   <JobList :jobs="jobs" :order="order" />
 </template>
 
@@ -53,5 +61,16 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+}
+header .title{
+  display: flex;
+  justify-content: center;
+}
+header img {
+  width: 60px;
+  margin-right: 20px;
+}
+header h1 {
+  font-size: 3em;
 }
 </style>
