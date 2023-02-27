@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
+import JobList from './components/JobList.vue'
 import type Job from "./types/Job";
 
 // using ref()
@@ -23,7 +24,7 @@ const jobs = ref<Job[]>([
 </script>
 
 <template>
-  <h1>{{ jobs[0].title }} from {{ jobs[0].location }}</h1>
+  <JobList :jobs="jobs" />
 </template>
 
 <style scoped>
