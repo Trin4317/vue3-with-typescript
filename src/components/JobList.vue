@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type Job from '@/types/Job'
+import type OrderTerm from '@/types/OrderTerm'
 
 // receive props from parent
 defineProps({
   jobs: {
     required: true,
     type: Array as PropType<Job[]>
+  },
+  order: {
+    required: true,
+    type: String as PropType<OrderTerm>
   }
 })
 </script>
 
 <template>
   <div class="job-list">
+    <p>Order by {{ order }}</p>
     <ul>
       <li v-for="job in jobs" :key="job.id">
         <h2>{{ job.title }} in {{ job.location }}</h2>
