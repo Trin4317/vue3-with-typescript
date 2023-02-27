@@ -15,5 +15,6 @@
 				"octref.vetur"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "npm install"
 }
