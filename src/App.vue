@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import JobList from './components/JobList.vue'
 import type Job from './types/Job'
+import type OrderTerm from './types/OrderTerm'
 
 // using ref()
 // const name = ref<string>("Link");
@@ -21,10 +22,19 @@ const jobs = ref<Job[]>([
   { title: 'fisherman', location: 'lake hylia', salary: 21000, id: '4' },
   { title: 'prison guard', location: 'gerudo valley', salary: 32000, id: '5' }
 ])
+
+const order = ref<OrderTerm>('title')
+
+const handleClick = (term: OrderTerm) => {
+  order.value = term
+}
 </script>
 
 <template>
-  <JobList :jobs="jobs" />
+  <button @click="handleClick('title')">Sort by Title</button>
+  <button @click="handleClick('salary')">Sort by Salary</button>
+  <button @click="handleClick('location')">Sort by Location</button>
+  <JobList :jobs="jobs" :order="order" />
 </template>
 
 <style scoped></style>
